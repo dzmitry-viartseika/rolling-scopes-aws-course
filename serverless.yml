@@ -1,4 +1,4 @@
-service: node-in-aws-web
+service: wertey-aws-app
 
 frameworkVersion: '2'
 
@@ -6,6 +6,7 @@ provider:
   name: aws
   region: eu-west-1
   runtime: nodejs12.x
+  profile: wertey
   # setup profile for AWS CLI.
   # profile: node-aws
 
@@ -18,12 +19,11 @@ plugins:
 
 custom:
   client:
-    bucketName: node-in-aws-web-bucket
+    bucketName: wertey-aws-app
     distributionFolder: build
-  s3BucketName: ${self:custom.client.bucketName}
-
   ## Serverless-single-page-app-plugin configuration:
-  s3LocalPath: ${self:custom.client.distributionFolder}/
+  s3LocalPath: ${self:custom.client.distributionFolder
+  s3BucketName: ${self:custom.client.bucketName}
 
 resources:
   Resources:

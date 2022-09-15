@@ -2,6 +2,16 @@
 
 See `develop` branch for development
 
+## CloudFront URL
+```
+URL: https://d3an0ez3et7tzn.cloudfront.net/
+```
+
+##  S3-website
+```
+URL: http://wertey-manual-aws-app.s3-website-eu-west-1.amazonaws.com/
+```
+
 ## Project setup
 ```
 npm install
