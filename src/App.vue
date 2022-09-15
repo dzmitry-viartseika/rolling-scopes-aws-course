@@ -1,6 +1,7 @@
 <template>
 	<div id="app">
 		<v-app-router />
+
 		<v-snackbar-container />
 		<v-app-version bottomRightCorner :value="appVersion" />
 	</div>
