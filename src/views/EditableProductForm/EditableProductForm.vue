@@ -92,7 +92,8 @@ export default Vue.extend({
 			this.isFetching = true;
 
 			try {
-				this.product = await productApi.fetchProductById(id);
+				const response = await productApi.fetchProductById(id);
+				this.product = response.data[0];
 			} catch (e) {
 				this.showSnackbarWithMessage(e.message);
 			} finally {
