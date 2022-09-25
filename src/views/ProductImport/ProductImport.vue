@@ -48,7 +48,7 @@ export default Vue.extend({
 
 			productApi
 				.fetchProducts()
-				.then((items: Product[]) => {
+				.then(items => {
 					this.products = items.data;
 				})
 				.finally(() => {

@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 import { API_PATHS } from '@/constants/api-paths';
 import { Product } from '@/models/product';
 
 import productList from './productList.json';
 
-const fetchAvailableProducts = async (): Promise<Product[]> => {
+const fetchAvailableProducts = async (): Promise<AxiosResponse> => {
 	return axios
 		.get(`${API_PATHS.product}/products/`)
 		.then(res => res.data)
@@ -16,7 +16,7 @@ const fetchAvailableProducts = async (): Promise<Product[]> => {
 		});
 };
 
-const fetchProducts = async (): Promise<Product[]> => {
+const fetchProducts = async (): Promise<any> => {
 	return axios
 		.get(`${API_PATHS.product}/products`)
 		.then(res => res.data)
