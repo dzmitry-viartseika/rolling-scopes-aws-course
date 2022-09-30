@@ -29,7 +29,7 @@
 								}}
 							</p>
 
-							<p>
+							<p v-if="product.count">
 								{{ $t('products.dynamicCount', { count: product.count }) }}
 							</p>
 						</v-card-text>
@@ -81,7 +81,7 @@ export default Vue.extend({
 			productApi
 				.fetchAvailableProducts()
 				.then(products => {
-					this.products = products;
+					this.products = products.data;
 				})
 				.finally(() => {
 					this.isFetching = false;
