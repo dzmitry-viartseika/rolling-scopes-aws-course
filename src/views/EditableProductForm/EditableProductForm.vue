@@ -49,7 +49,7 @@
 import Vue from 'vue';
 
 import { productApi } from '@/api/product-api';
-import { Product } from '@/models/product';
+import { v4 as uuidv4 } from 'uuid';
 
 import VProductForm from './ui/ProductForm.vue';
 
@@ -108,12 +108,16 @@ export default Vue.extend({
 			this.showErrorSnackbar = true;
 			this.errorMessage = message.toString();
 		},
-		async handleProductSubmit(values: Product) {
+		async handleProductSubmit(values: any) {
 			console.info(values);
 			this.isFetching = true;
-
+			values.id = uuidv4();
 			try {
 				await productApi.saveProduct(values);
+				await productApi.saveStock({
+					product_id: values.id,
+					count: +values.count,
+				});
 
 				this.$router.push('/admin/products');
 			} catch (e) {

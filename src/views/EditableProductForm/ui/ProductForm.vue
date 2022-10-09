@@ -107,7 +107,6 @@ export default Vue.extend({
 		product(v: Product) {
 			this.title = v.title;
 			this.description = v.description;
-			this.count = v.count;
 			this.price = v.price;
 		},
 	},
