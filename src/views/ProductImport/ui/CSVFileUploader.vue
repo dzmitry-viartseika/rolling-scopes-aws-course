@@ -49,7 +49,7 @@ import Vue from 'vue';
 
 import axios from 'axios';
 
-const authorization_token = localStorage.getItem('authorization_token');
+const token = localStorage.getItem('authorization_token');
 
 const fetchPresignedS3Url = (url: string, fileName: string) => {
 	return axios({
@@ -58,9 +58,7 @@ const fetchPresignedS3Url = (url: string, fileName: string) => {
 		params: {
 			name: encodeURIComponent(fileName),
 		},
-		headers: {
-			Authorization: `Basic ${authorization_token}`,
-		},
+		...(token && { headers: { Authorization: `Basic ${token}` } }),
 	});
 };
 
@@ -75,11 +73,12 @@ const uploadFileBy = async (url: string, file: File) => {
 		body: file,
 	});
 
-	// if (result.status === 401 || result.status === 403) {
-	// 	alert(
-	// 		`Server responded with ${result.status} status code: ${result.statusText}`
-	// 	);
-	// }
+	if (result.status === 401 || result.status === 403) {
+		const errorMessage = result.status === 401 ? 'Unauthorized' : 'Forbidden';
+		alert(
+			`Server responded with ${result.status} status code: ${errorMessage}`
+		);
+	}
 
 	console.info('Result: ', result);
 
