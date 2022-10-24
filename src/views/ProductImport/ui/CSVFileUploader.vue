@@ -73,12 +73,12 @@ const uploadFileBy = async (url: string, file: File) => {
 		body: file,
 	});
 
-	if (result.status === 401 || result.status === 403) {
-		const errorMessage = result.status === 401 ? 'Unauthorized' : 'Forbidden';
-		alert(
-			`Server responded with ${result.status} status code: ${errorMessage}`
-		);
-	}
+	// if (result.status === 401 || result.status === 403) {
+	// 	const errorMessage = result.status === 401 ? 'Unauthorized' : 'Forbidden';
+	// 	alert(
+	// 		`Server responded with ${result.status} status code: ${errorMessage}`
+	// 	);
+	// }
 
 	console.info('Result: ', result);
 
