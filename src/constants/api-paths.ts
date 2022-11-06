@@ -3,5 +3,5 @@ export const API_PATHS = {
 	order: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
 	import: 'https://7fy8bifhjj.execute-api.eu-west-1.amazonaws.com/dev',
 	bff: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
-	cart: 'https://.execute-api.eu-west-1.amazonaws.com/dev',
+	cart: 'http://dzmitry-viartseika-aws-cart-api.eu-west-1.elasticbeanstalk.com',
 };
